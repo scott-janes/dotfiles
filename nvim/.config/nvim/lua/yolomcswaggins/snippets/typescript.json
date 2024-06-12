@@ -1,0 +1,18 @@
+{
+  "NewNextPage": {
+    "prefix": "npt",
+    "body": [
+      "import type { NextPage } from \"next\";",
+      "",
+      "const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}: NextPage = () => {",
+      "  return (",
+      "    <>",
+      "    </>",
+      "  )",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}"
+    ],
+    "description": "Typescript: Next.js page"
+  }
+}
