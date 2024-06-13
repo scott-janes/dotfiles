@@ -16,10 +16,6 @@ autoload -Uz _zinit
 
 . ~/.zsh/.zsh-plugins
 
-# . ~/.zsh/.zsh-plugins
-
-# ZSH_THEME="spaceship"
-
 plugins=(
     docker
     docker-compose
@@ -29,6 +25,7 @@ plugins=(
     nvm
 )
 
+alias zr="zellij-runner"
 
 source $ZSH/oh-my-zsh.sh
 

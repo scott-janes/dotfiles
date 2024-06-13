@@ -31,6 +31,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 map_key("n", "<C-s>", ":w<CR>", "Save file")
 map_key("i", "<C-s>", "<ESC> :w<CR>", "Save file")
 
+map_key("n", "<leader>z", ":ZenMode<CR>", "Toggle ZenMode")
+
 -- option("clipboard", "unnamedplus")
 option("ignorecase", true)
 option("smartindent", true)
