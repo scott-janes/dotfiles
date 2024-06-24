@@ -49,7 +49,7 @@ return {
 							nvim_lsp = "λ",
 							luasnip = "⋗",
 							buffer = "Ω",
-              codeium = "🤖",
+							codeium = "🤖",
 						}
 						item.menu = menu_icon[entry.source.name]
 						return item

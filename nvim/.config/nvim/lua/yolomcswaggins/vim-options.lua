@@ -15,8 +15,8 @@ map_key("n", "<C-h>", "<C-w>h", "Move to left window")
 map_key("n", "<C-j>", "<C-w>j", "Move to below window")
 map_key("n", "<C-k>", "<C-w>k", "Move to above window")
 map_key("n", "<C-l>", "<C-w>l", "Move to right window")
-map_key("n", "<C-n>n", ":Neotree filesystem reveal left<CR>", "Open neotree")
-map_key("n", "<C-n>b", ":Neotree close<CR>", "Close Neotree")
+map_key("n", "<C-b>n", ":Neotree filesystem reveal left<CR>", "Open neotree")
+map_key("n", "<C-b>b", ":Neotree close<CR>", "Close Neotree")
 keymap("n", "x", '"_x')
 
 vim.api.nvim_create_autocmd("TextYankPost", {
