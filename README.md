@@ -11,6 +11,8 @@ My dotfiles for:
 
 These are my personal dotfiles and they are in a terrible state and need tidying up at some point. The folders that are in desperate need to fix are, sketchybar and zsh they both need re writing but they kind of work but the zsh is very much built for my WSL2 windows setup
 
+Also the nvim settings really need redoing it's a bit of a mess but it works and I'm happy with it so meh
+
 So use at your own risk
 
 ## Setup
