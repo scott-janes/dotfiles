@@ -19,6 +19,9 @@ map_key("n", "<C-b>n", ":Neotree filesystem reveal left<CR>", "Open neotree")
 map_key("n", "<C-b>b", ":Neotree close<CR>", "Close Neotree")
 keymap("n", "x", '"_x')
 
+
+vim.g.maplocalleader = ","
+
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight when yanking (copying) text",
   group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),

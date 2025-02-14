@@ -1,4 +1,4 @@
-dirs = zsh nvim zellij
+dirs = zsh nvim zellij aerospace sketchybar borders
 
 install:
 	@for dir in $(dirs); do \

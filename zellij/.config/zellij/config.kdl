@@ -131,23 +131,24 @@ plugins {
 
 simplified_ui true
 pane_frames false
-
 themes {
-    base16 {
-        fg      "#D8D8D8"
-        bg      "#3b3b3b"
-        black   "#181818"
-        red     "#AC4242"
-        green   "#90A959"
-        yellow  "#F4BF75"
-        blue    "#6A9FB5"
-        magenta "#AA759F"
-        cyan    "#75B5AA"
-        white   "#F8F8F8"
-        orange  "#ffa066"
+    tokyonight_moon {
+        fg "#c8d3f5"
+        bg "#2f334d"
+        // Black should match the terminal background color
+        // This ensures the top and bottom bars are transparent
+        black "#222436"
+        red "#ff757f"
+        green "#c3e88d"
+        yellow "#ffc777"
+        blue "#82aaff"
+        magenta "#c099ff"
+        cyan "#86e1fc"
+        white "#828bb8"
+        orange "#ff966c"
     }
 }
 
-theme "tokyo-night-storm"
+theme "tokyonight_moon"
 default_layout "simple"
 copy_on_select true
