@@ -1,0 +1,15 @@
+#!/bin/bash
+
+options=(
+	style=round
+	width=6.0
+	hidpi=off
+	active_color=0xc0ff00f2
+	inactive_color=0xff0080ff
+)
+
+borders "${options[@]}"
+
+// This stops it from freaking out and setting borders on every
+// mini window intellij likes to open
+borders blacklist="idea"
