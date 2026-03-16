@@ -1,0 +1,20 @@
+layout {
+    tab name="nvim" {
+        pane command="nvim"
+        pane size=1 borderless=true {
+            plugin location="cb"
+        }
+    }
+    tab name="warp-core" {
+        pane
+        pane size=1 borderless=true {
+            plugin location="cb"
+        }
+    }
+    tab name="scratch" {
+        pane
+        pane size=1 borderless=true {
+            plugin location="cb"
+        }
+    }
+}

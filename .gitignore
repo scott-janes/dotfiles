@@ -1,0 +1,18 @@
+# Ignore env secrets
+.env
+
+# Ignore OS junk
+.DS_Store
+
+# Ignore old stow symlinks and backup files
+*.bak
+*.swp
+
+# Ignore output, cache and temp
+*.log
+tmp/
+.cache/
+
+# Ignore system directories
+__pycache__/
+AGENTS.md
