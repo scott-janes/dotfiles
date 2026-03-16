@@ -5,7 +5,7 @@ keybinds clear-defaults=true {
         bind "Alt l" { MoveFocusOrTab "right"; }
         bind "Alt j" { MoveFocus "down"; }
         bind "Alt k" { MoveFocus "up"; }
-        bind "Alt n" { NewTab; }
+        bind "Alt t" { NewTab; }
         bind "Alt c" { CloseTab; }
         bind "Alt r" { SwitchToMode "renametab"; TabNameInput 0; }
         bind "Alt 1" { GoToTab 1; }

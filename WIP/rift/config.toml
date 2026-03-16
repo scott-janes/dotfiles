@@ -1,0 +1,100 @@
+[settings]
+default_disable = false
+animate = true
+animation_duration = 0.25
+animation_fps = 100.0
+mouse_follows_focus = true
+mouse_hides_on_focus = false
+hot_reload = true
+run_on_start = ["/Users/scott_janes/.config/rift/assign_workspaces.sh"]
+
+[settings.layout]
+mode = "bsp"
+
+[settings.layout.gaps.outer]
+top = 45
+left = 20
+bottom = 20
+right = 20
+
+[settings.layout.gaps.inner]
+horizontal = 15
+vertical = 15
+
+[modifier_combinations]
+main = "Ctrl + Shift + Meta"
+move = "Ctrl + Shift + Meta + Alt"
+
+[virtual_workspaces]
+enabled = true
+default_workspace_count = 8
+auto_assign_windows = true
+preserve_focus_per_workspace = true
+workspace_auto_back_and_forth = false
+reapply_app_rules_on_title_change = false
+# enabled = true
+workspace_names = ["1", "2", "3", "4","5","6","7","8"]
+
+workspace_rules = [
+  { workspace = 1, layout = "bsp" },
+  { workspace = 2, layout = "bsp" },
+  { workspace = 3, layout = "bsp" },
+  { workspace = 4, layout = "bsp" },
+  { workspace = 5, layout = "bsp" },
+  { workspace = 6, layout = "bsp" },
+  { workspace = 7, layout = "bsp" },
+  { workspace = 8, layout = "bsp" },
+]
+
+app_rules = [
+  { app_id = "com.microsoft.Outlook", workspace = 4 },
+  { app_id = "com.tinyspeck.slackmacgap", workspace = 4 },
+  { app_id = "com.hnc.Discord", workspace = 8 },
+  { app_id = "com.spotify.client", workspace = 5 },
+  { app_id = "com.jetbrains.intellij", workspace = 2 },
+  { app_id = "us.zoom.xos", app_name = "zoom.us", floating = true }
+]
+
+[keys]
+# Focus movement
+"main + H" = { move_focus = "left" }
+"main + J" = { move_focus = "down" }
+"main + K" = { move_focus = "up" }
+"main + L" = { move_focus = "right" }
+
+# Move window
+"move + H" = { move_node = "left" }
+"move + J" = { move_node = "down" }
+"move + K" = { move_node = "up" }
+"move + L" = { move_node = "right" }
+
+# Workspace switching
+"move + Y" = { switch_to_workspace = 1 }
+"move + U" = { switch_to_workspace = 2 }
+"move + I" = { switch_to_workspace = 3 }
+"move + O" = { switch_to_workspace = 4 }
+"move + P" = { switch_to_workspace = 5 }
+"move + 6" = { switch_to_workspace = 6 }
+"move + 7" = { switch_to_workspace = 7 }
+"move + 8" = { switch_to_workspace = 8 }
+
+# Move window to workspace
+"main + Y" = { move_window_to_workspace = 1 }
+"main + U" = { move_window_to_workspace = 2 }
+"main + I" = { move_window_to_workspace = 3 }
+"main + O" = { move_window_to_workspace = 4 }
+"main + P" = { move_window_to_workspace = 5 }
+"main + 6" = { move_window_to_workspace = 6 }
+"main + 7" = { move_window_to_workspace = 7 }
+"main + 8" = { move_window_to_workspace = 7 }
+
+# Fullscreen, layout toggles
+"main + F" = "toggle_fullscreen"
+"main + Shift + R" = { set_workspace_layout = { mode = "traditional" } }
+"main + Shift + S" = { set_workspace_layout = { mode = "master_stack" } }
+"main + Shift + A" = { set_workspace_layout = { mode = "bsp" } }
+"main + Shift + D" = { set_workspace_layout = { mode = "scrolling" } }
+
+[settings.ui.menu_bar]
+# enable menu bar workspace indicators
+enabled = true

@@ -1,0 +1,12 @@
+alias cat=bat
+alias el="eza -al --color=always --sort=size | grep -v /"
+alias lzyd="lazydocker"
+alias lzyg="lazygit"
+
+alias sourcez="source ~/.zshrc"
+
+idea() {
+  open -na "IntelliJ IDEA.app" --args "$@"
+}
+
+bindkey -s "^[z" "zj-hub\n"

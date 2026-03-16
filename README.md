@@ -1,38 +1,64 @@
-# Dodgy dot files
+# Dodgy Dotfiles (Now Tidied Up!)
 
-My dotfiles for:
+## What’s in this repo?
+Personal dotfiles for:
 
 - aerospace
 - borders
-- nvim
+- nvim (Neovim)
 - sketchybar
 - zellij
 - zsh
 
-These are my personal dotfiles and they are in a terrible state and need tidying up at some point. The folders that are in desperate need to fix are, sketchybar and zsh they both need re writing but they kind of work but the zsh is very much built for my WSL2 windows setup
+## Setup (macOS, Modern & Automated)
 
-Also the nvim settings really need redoing it's a bit of a mess but it works and I'm happy with it so meh
+**Clone your dotfiles wherever you want, then do:**
 
-So use at your own risk
+```bash
+cd ~/dotfiles   # or wherever you cloned
+```
 
-## Setup
+### First-Time Bootstrap (Essentials for macOS)
+Run this first if you’re setting up a new Mac:
+```bash
+./setup.sh first-time
+```
+- Installs Xcode command line tools, Homebrew, and Oh My Zsh
 
-These are just the dotfiles so everything will need installing and may require some manual setup steps
+### Full Dotfiles Install
+```bash
+./setup.sh
+```
+- Installs all configs to ~/.config and dotfiles to ~
+- Installs Brewfile packages
+- Ensures ~/.zshrc and ~/.zsh_aliases are up to date
 
-But clone this to `~`and cd into the dotfiles folder and run `make install` that will add the relevant folders into the `.config`
+### Install Just Brewfile Packages
+```bash
+./setup.sh install
+```
 
-## Other
+### Install Individual Config
+```bash
+./setup.sh <config>
+# Example:
+./setup.sh nvim
+```
 
-I also have a folder called other that contains scripts to add to the bin as a symlink to make things easier
+## What’s gone?
+- No old stow logic
+- No Makefile
+- No Windows/WSL cruft
 
-### zellij-sessionizer
+## Notes
+- All configs are now flat in repo (e.g., nvim/init.lua, sketchybar/bar.lua)
+- `.zsh_aliases` is managed and sourced in `.zshrc`
+- Scripts are idempotent and friendly
+- See `first-time.sh` for what runs only once (brew, oh-my-zsh, xcode tools)
 
-This is set as `zsesh` so I can run it from anywhere and choose one of my git repos to open in zellij either with an existing session or create a new one
+## Safe to Use
+This setup is robust for fresh macOS installs. You can run scripts and overwrite existing configs—they’ll always reflect your repo as source of truth.
 
-`ln -s ~/dotfiles/other/zellij-sessionizer.sh /opt/homebrew/bin/zsesh`
+---
 
-### zellij-sweeper
-
-This is set as `zsweep` so it can be run from anywhere and can be used to clean up zellij sessions
-
-`ln -s ~/dotfiles/other/zellij-sweeper.sh /opt/homebrew/bin/zsweep`
+Feel free to fork, adapt, or request more features!
