@@ -1,7 +1,3 @@
-tap "homebrew/cask"
-tap "homebrew/cask-fonts"
-tap "felixkratz/formulae"
-
 # CLI / Formulae
 brew "asdf"
 brew "bash"
@@ -35,7 +31,7 @@ brew "yazi"
 brew "zellij"
 
 # GUI Apps / Casks
-cask "aerospace"
+cask "nikitabobko/tap/aerospace"
 cask "arc"
 cask "bazecor"
 cask "caffeine"
