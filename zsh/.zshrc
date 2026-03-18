@@ -21,8 +21,17 @@ autoload -Uz _zinit
 # Load custom plugins
 . ~/.zsh/.zsh-plugins
 
+plugins=(
+  git
+)
+
 # Oh-My-Zsh
 source $ZSH/oh-my-zsh.sh
+
+# Starship prompt (loads after Oh-My-Zsh)
+if command -v starship &>/dev/null; then
+  eval "$(starship init zsh)"
+fi
 
 # Preferred editor
 EDITOR='nvim'

@@ -4,7 +4,8 @@ after-startup-command = [
     "open -na /Applications/WezTerm.app",
     "open -na /Applications/Slack.app",
     "open -na /Applications/Discord.app",
-    "exec-and-forget sketchybar"
+    "exec-and-forget sketchybar",
+    "layout tiles"
 ]
 
 enable-normalization-flatten-containers = true

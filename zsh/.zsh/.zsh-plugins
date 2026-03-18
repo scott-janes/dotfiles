@@ -1,10 +1,8 @@
-# Use zinit's lazy-loading 'wait' for plugins:
-
-# Starship prompt (wait until shell is idle)
-zinit wait lucid for starship/starship
+# Starship prompt (load immediately)
+zinit light starship/starship
 
 # Autosuggestions (quick load, but use wait for extra boost)
-zinit wait"1" lucid for zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-autosuggestions
 
 # Syntax highlighting (defer loading)
 zinit wait"2" lucid for zdharma-continuum/fast-syntax-highlighting
