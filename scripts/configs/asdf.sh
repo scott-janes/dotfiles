@@ -26,7 +26,7 @@ declare -A plugins=(
 )
 
 ## 5. Per-language version arrays
-nodejs_versions=("latest:lts")
+nodejs_versions=("latest")
 golang_versions=("latest")
 rust_versions=("latest")
 
