@@ -18,20 +18,6 @@ if ! grep -q 'asdf' "$HOME/.zshrc"; then
   echo 'export PATH="$HOME/.asdf/shims:$PATH"' >> "$HOME/.zshrc"
 fi
 
-## 3. Only install missing plugin dependencies
-missing_deps=()
-for dep in gpg gawk coreutils; do
-  if ! command -v "$dep" >/dev/null 2>&1; then
-    missing_deps+=("$dep")
-  fi
-done
-if [ "${#missing_deps[@]}" -gt 0 ]; then
-  echo "[ASDF] Installing missing dependencies: ${missing_deps[*]}"
-  brew install "${missing_deps[@]}"
-else
-  echo "[ASDF] All dependencies present."
-fi
-
 ## 4. Plugins URLs (add new tools here)
 declare -A plugins=(
   [nodejs]="https://github.com/asdf-vm/asdf-nodejs.git"
