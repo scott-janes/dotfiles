@@ -12,17 +12,17 @@ msg "Refreshing opencode config..."
 ensure_config_dir
 mkdir -p "$CONFIG_DEST"
 cp -f "$JSON_SRC" "$JSON_DEST"
-API_KEY="$OPENCODE_API_KEY"
+API_KEY="$CONTEXT7_API_KEY"
 if [ -z "$API_KEY" ]; then
   if [ -f "$REPO_DIR/.env" ]; then
-    API_KEY=$(grep 'OPENCODE_API_KEY=' "$REPO_DIR/.env" | cut -d '=' -f2)
+    API_KEY=$(grep 'CONTEXT7_API_KEY=' "$REPO_DIR/.env" | cut -d '=' -f2)
   fi
 fi
 if [ ! -z "$API_KEY" ]; then
-  msg "Injecting OPENCODE_API_KEY into opencode.json"
+  msg "Injecting CONTEXT7_API_KEY into opencode.json"
   sed -i '' "s/YOUR_API_KEY_HERE/$API_KEY/g" "$JSON_DEST"
 else
-  warn "No OPENCODE_API_KEY found. Please update opencode.json manually."
+  warn "No CONTEXT7_API_KEY found. Please update opencode.json manually."
 fi
 
 # Sync skins directory only (just repo skins, leave user files untouched)
