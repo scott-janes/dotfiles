@@ -1,10 +1,6 @@
 start-at-login = true
 after-startup-command = [
-    "open -na /Applications/Arc.app",
-    "open -na /Applications/WezTerm.app",
-    "open -na /Applications/Slack.app",
-    "open -na /Applications/Discord.app",
-    "exec-and-forget sketchybar",
+    'exec-and-forget /opt/homebrew/bin/sketchybar',
     "layout tiles"
 ]
 

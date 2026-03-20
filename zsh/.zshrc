@@ -28,11 +28,7 @@ plugins=(
 # Oh-My-Zsh
 source $ZSH/oh-my-zsh.sh
 
-# Starship prompt (loads after Oh-My-Zsh)
-if command -v starship &>/dev/null; then
-  eval "$(starship init zsh)"
-fi
-
+eval "$(starship init zsh)"
 # Preferred editor
 EDITOR='nvim'
 fpath+=~/.zfunc

@@ -9,6 +9,5 @@ source "$REPO_DIR/scripts/core/helpers.sh"
 
 msg "Refreshing wezterm config..."
 
-copy_config "$CONFIG_SRC" "$CONFIG_DEST"
 
 msg "wezterm config refreshed."
