@@ -10,8 +10,8 @@ source "$REPO_DIR/scripts/core/helpers.sh"
 
 msg "Refreshing opencode config..."
 ensure_config_dir
-refresh_config_dir "$CONFIG_DEST"
-cp "$JSON_SRC" "$JSON_DEST"
+mkdir -p "$CONFIG_DEST"
+cp -f "$JSON_SRC" "$JSON_DEST"
 API_KEY="$OPENCODE_API_KEY"
 if [ -z "$API_KEY" ]; then
   if [ -f "$REPO_DIR/.env" ]; then
@@ -24,6 +24,11 @@ if [ ! -z "$API_KEY" ]; then
 else
   warn "No OPENCODE_API_KEY found. Please update opencode.json manually."
 fi
-# Install plugins
-# bash "$REPO_DIR/scripts/opencode-plugins.sh"
+
+# Sync skins directory only (just repo skins, leave user files untouched)
+if [ -d "$CONFIG_SRC/skins" ]; then
+  mkdir -p "$CONFIG_DEST/skins"
+  cp -f "$CONFIG_SRC"/skins/* "$CONFIG_DEST"/skins/
+fi
+
 msg "opencode config refreshed."

@@ -1,0 +1,38 @@
+k9s:
+  liveViewAutoRefresh: false
+  screenDumpDir: /tmp/dumps
+  refreshRate: 2
+  apiServerTimeout: 15s
+  maxConnRetry: 5
+  readOnly: false
+  defaultView: ""
+  noExitOnCtrlC: false
+  ui:
+    enableMouse: false
+    headless: false
+    logoless: false
+    crumbsless: false
+    splashless: false
+    noIcons: false
+    reactive: false
+    skin: tokyonight
+    defaultsToFullScreen: false
+    useFullGVRTitle: false
+  noIcons: false
+  skipLatestRevCheck: false
+  keepMissingClusters: false
+  logger:
+    tail: 200
+    buffer: 500
+    sinceSeconds: 300
+    textWrap: false
+    disableAutoscroll: false
+    showTime: false
+  shellPod:
+    image: busybox
+    namespace: default
+    limits:
+      cpu: 100m
+      memory: 100Mi
+    tty: true
+    hostPathVolume:
