@@ -8,15 +8,8 @@ local mason_lspconfig = require("mason-lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 -- LSP servers to install automatically
-local servers = {
-  "eslint",       -- ESLint
-  "lua_ls",       -- Lua
-  "gopls",        -- Go
-  "terraformls",  -- Terraform
-  "bashls",       -- Bash
-  "jsonls",       -- JSON
-  "yamlls",       -- YAML
-}
+local constants = require("yolomcswaggins.constants")
+local servers = constants.lsp_servers
 
 -- Setup Mason to auto-install LSP servers
 mason_lspconfig.setup({
