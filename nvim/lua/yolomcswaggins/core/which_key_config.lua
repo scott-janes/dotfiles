@@ -1,4 +1,5 @@
 -- Full which-key.nvim setup and registration logic
+vim.g.which_key_check_health = 0
 local M = {}
 
 function M.which_key_setup()
@@ -41,10 +42,8 @@ function M.which_key_setup()
   }, { version = 2 })
 
   -- Register comment mappings as descriptions only (no remaps).
-  wk.add({
-    { "<gc>", group = "Comment (operator)", mode = { "n", "o", "x" } },
-    { "<gcc>", "Toggle comment line", desc = "Toggle comment line", mode = { "n", "o", "x" } },
-  }, { version = 2 })
+  -- Do not register <gc> or <gcc> with which-key to keep popup clean and avoid overlap noise.
+
 
   -- Note: No top-level `gc` mapping here; defer and Comment.nvim handle registration.
 end

@@ -31,9 +31,10 @@ vim.api.nvim_create_autocmd("FileType", {
     wk.add({
       { "<leader>g", group = "Go" },
       { "<leader>gt", group = "Test" },
-      { "<leader>gtt", "<cmd>GoTest<cr>", desc = "Run tests" },
-      { "<leader>gtf", "<cmd>GoTestFunc<cr>", desc = "Test function" },
-      { "<leader>gtp", "<cmd>GoTestPkg<cr>", desc = "Test package" },
+      -- Deprecated: prefer neotest (<leader>t*) for running Go tests
+      -- { "<leader>gtt", "<cmd>GoTest<cr>", desc = "Run tests" },
+      -- { "<leader>gtf", "<cmd>GoTestFunc<cr>", desc = "Test function" },
+      -- { "<leader>gtp", "<cmd>GoTestPkg<cr>", desc = "Test package" },
       { "<leader>gc", "<cmd>GoCoverage<cr>", desc = "Coverage" },
       { "<leader>gi", "<cmd>GoImplements<cr>", desc = "Show implements" },
       { "<leader>ge", "<cmd>GoIfErr<cr>", desc = "Add if err" },

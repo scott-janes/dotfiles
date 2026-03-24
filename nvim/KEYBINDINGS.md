@@ -117,13 +117,25 @@
 | `]d` | Next diagnostic |
 | `<leader>gf` | **Format buffer** (manual) |
 
+## Test Runner (neotest: Go/Jest/JS/TS)
+
+| Keybinding     | Description                                      |
+|----------------|--------------------------------------------------|
+| `<leader>tt`   | Run nearest test (under cursor)                  |
+| `<leader>tf`   | Run all tests in the current file                |
+| `<leader>td`   | Run all tests recursively in directory/project   |
+| `<leader>ts`   | Toggle test summary window (tree)                |
+| `<leader>to`   | Show test output for most recent test            |
+| `<leader>tO`   | Toggle full output panel (all history)           |
+| `<leader>ta`   | Attach to running test (debug mode, if enabled)  |
+| `<leader>tx`   | Stop the currently running test(s)               |
+
+*These are available everywhere, for both Go and JS/TS projects (works with Jest/NestJS and Go out of the box).*  
+
 ## Go-Specific (Go files only)
 
 | Keybinding | Description |
 |------------|-------------|
-| `<leader>gtt` | Run Go tests |
-| `<leader>gtf` | Test current function |
-| `<leader>gtp` | Test current package |
 | `<leader>gc` | Show coverage |
 | `<leader>gi` | Show implements |
 | `<leader>ge` | Add if err |

@@ -69,7 +69,7 @@ autocmd("VimResized", {
 augroup("CloseWithQ", { clear = true })
 autocmd("FileType", {
   group = "CloseWithQ",
-  pattern = { "qf", "help", "man", "lspinfo", "checkhealth" },
+  pattern = { "qf", "help", "man", "lspinfo" },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })

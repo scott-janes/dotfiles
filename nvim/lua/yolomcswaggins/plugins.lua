@@ -11,6 +11,7 @@ for _, group in ipairs({
   require("yolomcswaggins.plugins_lsp"),
   require("yolomcswaggins.plugins_completion"),
   require("yolomcswaggins.plugins_format"),
+  require("yolomcswaggins.plugins_testing"),
 }) do
   for _, plugin in ipairs(group) do
     table.insert(plugins, plugin)
