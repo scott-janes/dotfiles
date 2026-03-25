@@ -61,4 +61,85 @@ This setup is robust for fresh macOS installs. You can run scripts and overwrite
 
 ---
 
+## Debugging Node.js and TypeScript in Neovim (Modern Way)
+
+For JavaScript/TypeScript (Node.js, Jest, Mocha, etc):
+- Uses official Microsoft [vscode-js-debug](https://github.com/microsoft/vscode-js-debug) for nvim-dap, supporting launch/attach just like VS Code.
+- Launch and debug configs are loaded automatically from local `.vscode/launch.json` (per project) using nvim-dap-projects (no need to define everything globally).
+
+### Setup the Node.js Debug Adapter
+
+**Manual Build (One-time):**
+
+```bash
+git clone https://github.com/microsoft/vscode-js-debug ~/vscode-js-debug
+cd ~/vscode-js-debug
+npm install --legacy-peer-deps
+npx gulp dapDebugServer
+```
+
+This builds the debug adapter at:
+```
+~/vscode-js-debug/dist/src/dapDebugServer.js
+```
+
+### Neovim Config Snippet
+
+In your Lua config (see `lua/yolomcswaggins/plugins_testing.lua`):
+
+```lua
+local dap = require("dap")
+local js_debug_path = vim.fn.expand("$HOME/vscode-js-debug/dist/src/dapDebugServer.js")
+dap.adapters["pwa-node"] = {
+  type = "server",
+  host = "localhost",
+  port = "${port}",
+  executable = {
+    command = "node",
+    args = { js_debug_path, "${port}" },
+  },
+}
+dap.adapters["node"] = function(cb, config)
+  if config.type == "node" then
+    config.type = "pwa-node"
+  end
+  local a = dap.adapters["pwa-node"]
+  if type(a) == "function" then
+    a(cb, config)
+  else
+    cb(a)
+  end
+end
+-- No need to define JS/TS configs here if you use .vscode/launch.json per repo
+```
+
+### Per-Project `.vscode/launch.json`
+
+- Place launch configs as you would for VS Code in `.vscode/launch.json` in each JS/TS repo.
+- Use nvim-dap-projects to enable reading configs per project.
+
+**Example launch.json:**
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "Debug NestJS Program",
+      "skipFiles": ["<node_internals>/**"],
+      "runtimeArgs": ["-r", "ts-node/register"],
+      "program": "${workspaceFolder}/src/main.ts",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "env": { "NODE_ENV": "development" }
+    }
+  ]
+}
+```
+
+**Works exactly like VS Code's launch configs!**
+
+---
+
 Feel free to fork, adapt, or request more features!

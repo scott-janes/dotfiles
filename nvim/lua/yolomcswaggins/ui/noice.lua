@@ -3,98 +3,36 @@
 -- ============================================================================
 
 require("noice").setup({
-  cmdline = {
-    enabled = true,
-    view = "cmdline_popup", -- Centered popup for cmdline
-    opts = {},
-    format = {
-      cmdline = { pattern = "^:", icon = "", lang = "vim" },
-      search_down = { kind = "search", pattern = "^/", icon = " ", lang = "regex" },
-      search_up = { kind = "search", pattern = "^%?", icon = " ", lang = "regex" },
-      filter = { pattern = "^:%s*!", icon = "$", lang = "bash" },
-      lua = { pattern = { "^:%s*lua%s+", "^:%s*lua%s*=%s*", "^:%s*=%s*" }, icon = "", lang = "lua" },
-      help = { pattern = "^:%s*he?l?p?%s+", icon = "" },
+  cmdline = { enabled = true, view = "cmdline_popup" },
+  messages = { enabled = true },
+  routes = {
+    {
+      filter = { error = true },
+      view = "notify",
+      opts = { stop = false },
     },
-  },
-  messages = {
-    enabled = true,
-    view = "notify",
-    view_error = "notify",
-    view_warn = "notify",
-    view_history = "messages",
-    view_search = "virtualtext",
-  },
-  popupmenu = {
-    enabled = true,
-    backend = "nui", -- Use nui for popup menu
-    kind_icons = {},
-  },
-  notify = {
-    enabled = true,
-    view = "notify",
   },
   lsp = {
-    progress = {
-      enabled = true,
-      format = "lsp_progress",
-      format_done = "lsp_progress_done",
-      throttle = 1000 / 30,
-      view = "mini",
-    },
     override = {
       ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
       ["vim.lsp.util.stylize_markdown"] = true,
       ["cmp.entry.get_documentation"] = true,
     },
-    hover = {
-      enabled = true,
-      silent = false,
-      view = nil,
-      opts = {},
-    },
-    signature = {
-      enabled = true,
-      auto_open = {
-        enabled = true,
-        trigger = true,
-        luasnip = true,
-        throttle = 50,
-      },
-      view = nil,
-      opts = {},
-    },
-    message = {
-      enabled = true,
-      view = "notify",
-      opts = {},
-    },
-    documentation = {
-      view = "hover",
-      opts = {
-        lang = "markdown",
-        replace = true,
-        render = "plain",
-        format = { "{message}" },
-        win_options = { concealcursor = "n", conceallevel = 3 },
-      },
+    signature = { enabled = false },
+  },
+  views = {
+    notify = {
+      backend = "notify",
+      max_height = 8,
+      timeout = 5000,
     },
   },
   presets = {
-    bottom_search = false, -- Use centered search
-    command_palette = true, -- Position the cmdline and popupmenu together
-    long_message_to_split = true, -- Long messages sent to split
+    bottom_search = false,
+    command_palette = true,
+    long_message_to_split = true,
     inc_rename = false,
-    lsp_doc_border = true, -- Add border to hover/signature docs
-  },
-  routes = {
-    {
-      filter = {
-        event = "msg_show",
-        kind = "",
-        find = "written",
-      },
-      opts = { skip = true },
-    },
+    lsp_doc_border = true,
   },
 })
 
@@ -111,8 +49,9 @@ require("notify").setup({
   },
   level = 2,
   minimum_width = 50,
-  render = "compact",
+  render = "default",
   stages = "fade_in_slide_out",
-  timeout = 3000,
+  timeout = 5000,
   top_down = true,
+  max_height = 8,
 })

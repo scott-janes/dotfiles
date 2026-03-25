@@ -80,7 +80,15 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
-    config = function() require("nvim-treesitter.configs").setup {} end,
+    config = function()
+      require("nvim-treesitter.config").setup {
+        highlight = { enable = true },
+        indent = { enable = true },
+        ensure_installed = { "lua", "typescript", "javascript", "go", "bash", "json", "yaml", "toml", "html", "css", "vim" },
+        autotag = { enable = true },
+        -- You can add more modules/features as needed
+      }
+    end,
   },
   -- Rainbow brackets
   {
